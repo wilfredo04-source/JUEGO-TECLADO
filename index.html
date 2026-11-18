@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dominio del Teclado</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">🚀 DOMINIO DEL TECLADO</div>
+    <div class="top-actions">
+      <span id="coinDisplay">🪙 0</span>
+      <button id="themeBtn">☀️ / 🌙</button>
+      <button id="musicBtn">🎵 Música</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero panel">
+      <div>
+        <p class="eyebrow">ACADEMIA ESPACIAL DE ESCRITURA</p>
+        <h1>¡Domina el teclado!</h1>
+        <p>Practica, gana monedas, desbloquea mascotas y conviértete en una leyenda.</p>
+      </div>
+      <div class="hero-icon">⌨️✨</div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat panel"><span>⭐ Puntos</span><strong id="score">0</strong></article>
+      <article class="stat panel"><span>❤️ Vidas</span><strong id="lives">2</strong></article>
+      <article class="stat panel"><span>⚡ Nivel</span><strong id="levelName">Básico</strong></article>
+      <article class="stat panel"><span>🏆 Récord</span><strong id="bestScore">0</strong></article>
+    </section>
+
+    <section class="panel game-panel">
+      <div class="section-heading">
+        <h2>🎮 Zona de entrenamiento</h2>
+        <span id="gameStatus" class="status">Listo para jugar</span>
+      </div>
+
+      <div class="level-select">
+        <label for="levelSelect">Selecciona tu nivel:</label>
+        <select id="levelSelect">
+          <option value="basic">Básico · 2 vidas</option>
+          <option value="intermediate">Intermedio · 3 vidas</option>
+          <option value="advanced">Avanzado · 1 vida</option>
+        </select>
+        <button id="startBtn" class="primary">▶ Iniciar juego</button>
+      </div>
+
+      <div class="game-info">
+        <span>⏱️ Tiempo: <b id="timer">60</b>s</span>
+        <span>🔥 Racha: <b id="streak">0</b></span>
+        <span>🎯 Palabras: <b id="wordCount">0</b></span>
+      </div>
+
+      <div class="word-box">
+        <p>Escribe esta palabra:</p>
+        <div id="wordToType">¡Prepárate!</div>
+        <div id="feedback" aria-live="polite">Presiona iniciar para comenzar.</div>
+      </div>
+
+      <input id="typingInput" type="text" placeholder="Escribe aquí..." autocomplete="off" disabled>
+      <div class="game-buttons">
+        <button id="pauseBtn" disabled>⏸ Pausar</button>
+        <button id="readBtn" disabled>🔊 Leer palabra</button>
+        <button id="soundBtn">🔔 Sonidos: sí</button>
+      </div>
+
+      <div class="reading-controls">
+        <label for="readingSpeed">Velocidad de lectura:</label>
+        <select id="readingSpeed">
+          <option value="0.65">🐢 Lenta</option>
+          <option value="1" selected>⚡ Normal</option>
+          <option value="1.5">🚀 Rápida</option>
+        </select>
+        <button id="readAgainBtn" disabled>🔁 Repetir lectura</button>
+      </div>
+
+      <div class="progress-track"><div id="progressBar"></div></div>
+    </section>
+
+    <section class="panel profile-panel">
+      <div class="section-heading"><h2>👤 Mi perfil espacial</h2></div>
+      <div class="profile-grid">
+        <div class="pet-preview" id="activePet">🐱</div>
+        <div>
+          <h3 id="playerRank">Principiante</h3>
+          <p>Experiencia: <b id="xpDisplay">0</b> XP</p>
+          <p>Mascota: <b id="petName">Gatito</b></p>
+          <p>Partidas ganadas: <b id="winsDisplay">0</b></p>
+          <div class="progress-track"><div id="xpBar"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>🐾 Tienda de mascotas</h2><span>50 mascotas</span></div>
+      <p class="muted">Compra mascotas con tus monedas y selecciona tu compañera de aventuras.</p>
+      <div id="petShop" class="pet-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>🎨 Skins del jugador</h2></div>
+      <div id="skinShop" class="skin-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>🎡 Ruleta de premios</h2><span>20 monedas por giro</span></div>
+      <div class="roulette-area">
+        <div id="rouletteResult">🎁</div>
+        <button id="spinBtn" class="primary">Girar ruleta</button>
+      </div>
+      <p class="muted">Puedes ganar monedas y experiencia. ¡Buena suerte!</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>🗺️ Mapa de aventuras</h2></div>
+      <div id="adventureMap" class="map-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>🏅 Medallas y trofeos</h2></div>
+      <div id="medals" class="medal-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>📊 Estadísticas</h2></div>
+      <div class="stats-detail">
+        <p>Palabras correctas: <b id="correctTotal">0</b></p>
+        <p>Errores: <b id="errorsTotal">0</b></p>
+        <p>Precisión: <b id="accuracy">0%</b></p>
+        <p>Mejor racha: <b id="bestStreak">0</b></p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>🏆 Tabla de récords</h2></div>
+      <ol id="leaderboard" class="leaderboard"></ol>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading"><h2>💾 Progreso guardado</h2></div>
+      <p class="muted">Tu progreso se guarda automáticamente en este navegador.</p>
+      <button id="resetBtn" class="danger">Reiniciar todo el progreso</button>
+    </section>
+  </main>
+
+  <footer>DOMINIO DEL TECLADO · Aprende jugando 🚀</footer>
+  <script src="script.js"></script>
+</body>
+</html>
